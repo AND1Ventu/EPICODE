@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrazione Music Streaming</title>
+    <style>
+        /* Stili CSS per il popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registrazione Music Streaming</h1>
+    <form id="registrationForm" onsubmit="return showPopup()">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" name="cognome" required><br>
+
+        <label for="email">Indirizzo Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="dataNascita">Data di Nascita:</label>
+        <input type="date" id="dataNascita" name="dataNascita" required><br>
+
+        <label for="telefono">Numero di Telefono:</label>
+        <input type="number" id="telefono" name="telefono" required><br>
+
+        <label>Gusti Musicali:</label><br>
+        <input type="checkbox" id="rock" name="gustiMusicali" value="Rock">
+        <label for="rock">Rock</label><br>
+        <input type="checkbox" id="pop" name="gustiMusicali" value="Pop">
+        <label for="pop">Pop</label><br>
+        <input type="checkbox" id="hipHop" name="gustiMusicali" value="Hip Hop">
+        <label for="hipHop">Hip Hop</label><br>
+
+        <label>Accetto i Termini e le Condizioni:</label>
+        <input type="radio" id="accetta" name="condizioni" value="Accetto" required>
+        <label for="accetta">Sì</label>
+        <input type="radio" id="nonAccetta" name="condizioni" value="NonAccetto">
+        <label for="nonAccetta">No</label><br>
+
+        <input type="submit" value="Invia registrazione">
+    </form>
+
+    <!-- Popup per la conferma della registrazione -->
+    <div id="popup">
+        <p>Registrazione inviata!</p>
+    </div>
+
+    <script>
+        function showPopup() {
+            // Mostra il popup
+            document.getElementById("popup").style.display = "block";
+            // Impedisce l'invio del form
+            return false;
+        }
+    </script>
+</body>
+</html>

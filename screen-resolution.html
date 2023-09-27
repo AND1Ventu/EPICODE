@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Max Screen Resolution</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        #image-container {
+            display: none; /* Hide the image container */
+        }
+
+        #fullscreen-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maximum Screen Resolution</h1>
+    <p>Width: <span id="width"></span> pixels</p>
+    <p>Height: <span id="height"></span> pixels</p>
+
+    <button id="fullscreen-button">Toggle Full Screen</button>
+
+    <div id="image-container">
+        <!-- The image will be displayed here -->
+    </div>
+
+    <script>
+        // Get the maximum screen resolution
+        const screenWidth = screen.width;
+        const screenHeight = screen.height;
+
+        // Display the resolution on the webpage
+        document.getElementById("width").textContent = screenWidth;
+        document.getElementById("height").textContent = screenHeight;
+
+        // Define an array of image URLs with different resolutions
+        const imageUrls = [
+            { width: 1920, height: 1080 },
+            { width: 1280, height: 720 },
+            { width: 800, height: 600 }
+            // Add more images with different resolutions as needed
+        ];
+
+        // Find the image that closely matches the screen resolution
+        const bestImage = imageUrls.reduce((prev, current) => {
+            const prevDiff = Math.abs(prev.width - screenWidth) + Math.abs(prev.height - screenHeight);
+            const currentDiff = Math.abs(current.width - screenWidth) + Math.abs(current.height - screenHeight);
+            return currentDiff < prevDiff ? current : prev;
+        });
+
+        // Set the background image of the body element
+        document.body.style.backgroundImage = `url('https://picsum.photos/${bestImage.width}/${bestImage.height}')`;
+
+        // Display the image container (optional)
+        const imageContainer = document.getElementById("image-container");
+        imageContainer.style.display = "block";
+
+        // Full screen button functionality
+        const fullscreenButton = document.getElementById("fullscreen-button");
+        fullscreenButton.addEventListener("click", () => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+                document.documentElement.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

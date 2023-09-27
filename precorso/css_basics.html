@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome del Luogo - Paesaggio</title>
+    <link href="https://fonts.googleapis.com/css?family=Prata|Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .main-section {
+            padding: 20px;
+        }
+
+        .image-container {
+            height: 500px;
+            background-image: url('./static/images/bg.jpg');
+            background-size: cover;
+        }
+
+        h1 {
+            font-family: 'Prata', serif;
+            font-size: 64px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-family: 'Prata', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        a {
+            font-weight: 600;
+            font-style: italic;
+            text-decoration: none;
+            color: #000; /* Colore dei link non visitati */
+        }
+
+        h6 {
+            padding: 22px;
+            margin-bottom: 0;
+            margin-top: 56px;
+            color: white;
+            border-radius: 6px;
+            background: linear-gradient(to right, #ffcccb, #ffb6c1); /* Imposta i colori del gradiente */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 6px 0;
+            padding-left: 22px;
+            border-bottom: 1px solid #dfdfdf;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #ffcccb; /* Cambia colore dei link visitati */
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 16px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-section">
+        <div class="image-container">
+            <h1>Nome del Luogo</h1>
+            <h3>Zona o Regione del Paesaggio</h3>
+        </div>
+        <p>Autore: <a href="./profilo-autore.html">Nome Cognome</a></p>
+        <h6>Luoghi correlati</h6>
+        <ul>
+            <li><a href="./luogo1.html">Luogo 1</a></li>
+            <li><a href="./luogo2.html">Luogo 2</a></li>
+            <li><a href="./luogo3.html">Luogo 3</a></li>
+            <li><a href="./luogo4.html">Luogo 4</a></li>
+            <li><a href="./luogo5.html">Luogo 5</a></li>
+        </ul>
+    </div>
+    <footer>
+        <a href="./css_basics.html">Homepage</a>
+    </footer>
+</body>
+</html>
